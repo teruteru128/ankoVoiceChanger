@@ -8,23 +8,39 @@ using System.Threading.Tasks;
 
 namespace ankoVoiceChanger
 {
-    public class Class1 : IPlugin
+    public class VoiceChangerPlugin : IPlugin
     {
         private IPluginHost _host = null;
         private static readonly string name = "ボイスチェンジャー";
         private static readonly string version = "0.0.1";
 
-        public string Name { get { return name + version; } }
+        public string Name
+        {
+            get
+            {
+                return name + version;
+            }
+        }
 
-        public string Description { get { return "コテハンで読み上げの声を切り替えます"; } }
+        public string Description
+        {
+            get
+            {
+                return "コテハンで読み上げの声を切り替えます";
+            }
+        }
 
         /**
          * アンコちゃんからホストをもらう
          */
         public IPluginHost host
         {
-            get { return this._host; }
-            set {
+            get
+            {
+                return this._host;
+            }
+            set
+            {
                 this._host = value;
                 _host.ReceiveChat += _host_ReceiveChat;
             }
@@ -46,11 +62,17 @@ namespace ankoVoiceChanger
             // {[読み上げソフト番号:{}, ...],[{記号, 読み上げソフト番号}, ...]}
         }
 
-        public bool IsAlive { get { return false; } }
+        public bool IsAlive
+        {
+            get
+            {
+                return false;
+            }
+        }
 
         public void Run()
         {
         }
-        
+
     }
 }
